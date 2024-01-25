@@ -1,0 +1,27 @@
+﻿<Window
+    x:Class="TestWPF.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:models="clr-namespace:TestWPF.Models"
+    Title="MainWindow"
+    Width="800"
+    Height="450">
+    <Window.DataContext>
+        <models:MainViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <TextBox Margin="58,369,572,27" Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Margin="300,364,313,29" Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Margin="559,368,60,25" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" />
+        <DataGrid Margin="0,66,0,165" ItemsSource="{Binding DataTable}" />
+        <Button
+            Margin="10,302,603,88"
+            Click="UpdateData_Click"
+            Content="Update Data" />
+        <Button
+            Margin="633,302,10,88"
+            Click="SaveData_Click"
+            Content="Save Data" />
+    </Grid>
+</Window>
